@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>QR code component</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: hsl(212, 45%, 89%);
+    }
+    .card {
+      margin: 100px auto;
+      background-color: #fff;
+      border-radius: 7px;
+      width: 300px;
+      padding: 10px;
+      font-family: Outfit;
+      font-weight: 400;
+      text-align: center;
+      word-break: keep-all;
+    }
+    .card img {
+      width: 100%;
+      height: 100%;
+      border-radius: 7px;
+      margin-bottom: 10px;
+    }
+    .card .card-title {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .card .card-subtitle {
+      font-size: 15px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- 引入 React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- 引入 Babel（让你能写 JSX） -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    // 数据(待拓展)
+    const card_content = [{
+      id:1,
+      img:"./images/image-qr-code.png",
+      title:"Improve your front-end skills by building projects",
+      subtitle:"Scan the QR code to visit Frontend Mentor and take your coding skills to the next level"
+    }]
+    // 卡片组件
+    function Card({content}) {
+      return (
+        <div className="card">
+          <div className="card-img">
+            <img src={content.img} alt={content.title} />
+          </div>
+          <h2 className="card-title">{content.title}</h2>
+          <span className="card-subtitle">{content.subtitle}</span>  
+        </div>
+      )
+    }
+    // 入口函数
+    function App() {
+      return (
+        <div className='bgc'>
+          {card_content.map(c=><Card key={c.id} content={c}/>)}
+        </div>
+      )
+    }
+    const root = ReactDOM.createRoot(document.getElementById('root'))
+    root.render(<App />)
+  </script>
+</body>
+</html>
