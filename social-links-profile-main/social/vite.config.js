@@ -16,5 +16,8 @@ export default defineConfig({
       '@':path.resolve(__dirname,'./src')
     }
   },
-  base:"/mentor-first/"
+  base:"/mentor_first/",
+  build:{
+    outDir:'../../docs'
+  }
 })
