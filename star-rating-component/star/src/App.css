@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --shadow-3xl: 12px 12px 5px 0px rgba(255, 255, 255, 0.3);
+  --color-empty: #E2E8F0;
+}
+
+body {
+  background-color: #E6E9FB;
+}
