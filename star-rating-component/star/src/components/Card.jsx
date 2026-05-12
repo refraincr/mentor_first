@@ -1,5 +1,5 @@
 import { c } from '@/data/data'
-import { FaStar } from "react-icons/fa"
+import { FaStar,FaStarHalf  } from "react-icons/fa"
 import { useState } from 'react'
 
 // 处理鼠标悬停在星星上
@@ -17,23 +17,42 @@ function Card() {
                 className='font-bold text-2xl text-center px-26'
                 >{content.title}</h1>
                 <div 
-                className='flex justify-between px-15'
+                className='flex justify-center gap-10'
                 >
-                    {[...Array(5)].map((_,i)=>(
-                        <FaStar
-                        key={i}
-                        className={`w-18 h-18 ${
-                            i <= rating
-                            ? 'text-yellow-400' 
-                            : 'text-empty hover:text-yellow-400'
-                        }`}
-                        onMouseEnter={()=>setRating(i)}
-                        />
+                    {[1,3,5,7,9].map(idx=>(
+                        <div 
+                        className='relative w-18 h-18'
+                        >
+                            <div 
+                            className='absolute top-0 left-0 w-1/2 h-full z-10 cursor-pointer'
+                            onMouseEnter={()=>setRating(idx)}
+                            />
+                            <div 
+                            className='absolute top-0 right-0 w-1/2 h-full z-10 cursor-pointer'
+                            onMouseEnter={()=>setRating(idx+1)}
+                            />
+                            {/*  底层空星 */}
+                            <FaStar 
+                            className='absolute w-18 h-18 text-empty'
+                            />
+                            {/* 左半区域亮半星 */}
+                            {rating >= idx && rating < idx + 1 && (
+                                <FaStarHalf 
+                                className='absolute w-18 h-18 text-yellow-400'
+                                />
+                            )}
+                            {/* 满星 */}
+                            {rating >= idx + 1 && (
+                                <FaStar 
+                                className='absolute w-18 h-18 text-yellow-400'
+                                />
+                            )}
+                        </div>
                     ))}
                 </div>
                 <p
                 className='text-center text-lg'
-                >{content.response[4-rating]}</p>
+                >{content.response[Math.floor((10 - rating)/2)]}</p>
             </div>
         </>
     )
