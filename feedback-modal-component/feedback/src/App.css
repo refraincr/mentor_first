@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@theme {
+  --color-deeppurple: #1a1832;
+  --color-btnbg: rgba(100, 100, 100, .1);
+  --color-btnborderbg: rgba(255, 255, 255, .1)
+}
+
+body {
+  background-color: #d0cbf3;
+}
