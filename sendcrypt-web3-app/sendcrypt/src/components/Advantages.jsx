@@ -22,7 +22,7 @@ export default function Advantages() {
         },
     ]
     return (
-        <div className="flex justify-between w-4/5 mx-auto">
+        <div className="w-4/5 mx-auto grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {data.map((d,idx)=><Card key={idx} data={d} />)}
         </div>
     )
@@ -30,8 +30,8 @@ export default function Advantages() {
 
 function Card({data}) {
     return (
-        <div className="bg-linear-to-b from-gray-300 to-gray-700 w-90 p-0.5 rounded-xl">
-            <div className="w-full h-full bg-[#16171d] rounded-xl p-10 flex flex-col gap-8 items-center">
+        <div className="bg-linear-to-b from-gray-300 to-gray-700 w-75 p-0.5 rounded-xl xl:w-85">
+            <div className="w-full h-full bg-[#16171d] rounded-xl p-10 flex flex-col gap-3 items-center xl:gap-6">
                 <div className="mb-6 mt-4">{data.icon}</div>
                 <h2 className="text-white text-2xl">{data.title}</h2>
                 <p className="text-gray-500 text-center">{data.content}</p>

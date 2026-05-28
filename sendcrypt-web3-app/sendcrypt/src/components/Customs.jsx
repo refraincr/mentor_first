@@ -4,9 +4,9 @@ import { useMemo } from 'react'
 export default function Customs() {
 
     return (
-        <div className='w-4/5 mx-auto'>
+        <div className='w-4/5 mx-auto min-w-100'>
             <h1 className='text-white text-5xl font-bold mb-10'>Latest transations</h1>
-            <div className='grid grid-cols-3 gap-x-18 gap-y-12'>
+            <div className='grid grid-cols-1 gap-x-9 gap-y-6 md:grid-cols-2 lg:grid-cols-3'>
                 {data.map(d=><Card key={d.id} content={d} />)}
             </div>
         </div>
